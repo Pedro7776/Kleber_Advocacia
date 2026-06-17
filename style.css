@@ -1,0 +1,448 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(
+        90deg,
+        #001B2E,
+        #041B8C
+    );
+    padding: 24px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #C89B2C;
+    font-weight: 600;
+}
+
+.hero-logo img {
+    width: 160px;
+    height: auto;
+    display: block;
+}
+
+.logo span {
+    font-size: 0.75rem;
+    color: #d9d9d9;
+    letter-spacing: 1px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #C89B2C;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #C89B2C;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero {
+    background: 
+        linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(15, 15, 15, 0.80) 50%, rgba(30, 30, 30, 0.70) 100%),
+        url('tingey-injury-law-firm-DZpc4UY8ZtY-unsplash.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* efeito parallax suave */
+    background-repeat: no-repeat;
+    padding: 130px 0;
+    text-align: center;
+    border-bottom: 1px solid #222;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-content h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content .gold {
+    color: #d4af37;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 24px auto;
+    color: #ddd;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btn-hero {
+    display: inline-block;
+    background: #d4af37;
+    color: #000;
+    padding: 14px 40px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-hero:hover {
+    background: #b8942e;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0;
+        min-height: 400px;
+        background-attachment: scroll;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .btn-hero {
+        padding: 12px 28px;
+    }
+}
+
+/* TITULOS */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #001B2E;
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+/* QUEM SOMOS */
+.quem-somos {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.quem-somos-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quem-somos-content p {
+    margin-bottom: 20px;
+    color: #555555;
+}
+
+/* SERVIÇOS */
+.servicos {
+    padding: 80px 0;
+    background-color: #f0f3f8;
+}
+
+.servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.servico-card {
+    background-color: #ffffff;
+    padding: 32px 24px;
+    text-align: center;
+    border: 1px solid #d9e1ec;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.servico-card:hover {
+    transform: translateY(-5px);
+    border-color: #C89B2C;
+    box-shadow: 0 10px 25px rgba(0, 27, 46, 0.08);
+}
+
+.servico-card i {
+    font-size: 2.5rem;
+    color: #C89B2C;
+    margin-bottom: 16px;
+}
+
+.servico-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: #001B2E;
+}
+
+.servico-card p {
+    color: #666666;
+}
+
+
+/* CONTATO */
+.contato {
+    padding: 60px 0;
+    background: #f5f7fa;
+}
+
+.contato .section-title {
+    color: #001B2E;
+    margin-bottom: 48px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.contato-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+
+    background: #ffffff;
+
+    padding: 48px;
+
+    border-radius: 12px;
+
+    border: 1px solid #d9e1ec;
+
+    box-shadow:
+        0 10px 30px rgba(0, 27, 46, 0.08);
+}
+
+.contato-info p {
+    margin: 18px 0;
+    color: #555;
+    line-height: 1.8;
+}
+
+.contato-info strong {
+    color: #001B2E;
+    font-weight: 600;
+}
+
+.contato-link {
+    color: #041B8C;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.contato-link:hover {
+    color: #C89B2C;
+}
+
+/* AÇÕES */
+.contato-acoes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contato-acoes h4 {
+    color: #001B2E;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.contato-card {
+    width: 100%;
+}
+
+/* BOTÕES */
+.btn-whatsapp,
+.btn-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    padding: 18px 24px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+    font-size: 1.05rem;
+
+    width: 100%;
+
+    transition: .3s;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(
+        135deg,
+        #041B8C,
+        #0A2BCF
+    );
+
+    color: white;
+
+    border: none;
+}
+
+.btn-whatsapp:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(4, 27, 140, 0.25);
+}
+
+.btn-email {
+    background: white;
+
+    color: #001B2E;
+
+    border: 1px solid #d9e1ec;
+}
+
+.btn-email:hover {
+    transform: translateY(-3px);
+
+    border-color: #C89B2C;
+
+    box-shadow:
+        0 8px 20px rgba(0, 27, 46, 0.08);
+}
+
+.btn-icon {
+    font-size: 1.8rem;
+    color: #C89B2C;
+}
+
+.btn-whatsapp small,
+.btn-email small {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: .8;
+    margin-top: 2px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 24px;
+    }
+
+    .btn-whatsapp,
+    .btn-email {
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    .btn-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .btn-whatsapp,
+    .btn-email {
+        font-size: 1rem;
+        padding: 14px 18px;
+    }
+
+    .btn-icon {
+        font-size: 1.6rem;
+    }
+}
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding-top: 24px;
+    }
+
+    .nav-menu.show {
+        display: flex;
+    }
+
+    .header-container {
+        flex-wrap: wrap;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .contato-wrapper {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+}
