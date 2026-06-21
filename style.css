@@ -25,9 +25,9 @@ header {
         #041B8C
     );
     padding: 24px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+   section {
+    scroll-margin-top: 110px;
+}
 }
 
 .header-container {
@@ -179,30 +179,109 @@ header {
     background-color: #ffffff;
 }
 
+.quem-somos .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Título */
+.quem-somos .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #001B2E;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Conteúdo */
 .quem-somos-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
 }
 
-.quem-somos-content p {
+/* Primeiro parágrafo (mais destacado) */
+.quem-somos .descricao-principal {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #001B2E;
+    font-weight: 500;
     margin-bottom: 20px;
-    color: #555555;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Segundo parágrafo */
+.quem-somos .descricao-secundaria {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666666;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quem-somos {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.quem-somos .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #001B2E;
+    margin-bottom: 35px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.quem-somos-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quem-somos .descricao-texto {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444444;
+    margin-bottom: 18px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .quem-somos .section-title {
+        font-size: 2rem;
+    }
+    
+    .quem-somos .descricao-texto {
+        font-size: 1rem;
+    }
 }
 
 /* SERVIÇOS */
-.servicos {
-    padding: 80px 0;
-    background-color: #f0f3f8;
+/* CARROSSEL */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0 -15px;
 }
 
-.servicos-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
+.carousel-wrapper {
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-.servico-card {
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.carousel-track .servico-card {
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 280px;
     background-color: #ffffff;
     padding: 32px 24px;
     text-align: center;
@@ -211,26 +290,100 @@ header {
     transition: 0.3s;
 }
 
-.servico-card:hover {
+.carousel-track .servico-card:hover {
     transform: translateY(-5px);
     border-color: #C89B2C;
     box-shadow: 0 10px 25px rgba(0, 27, 46, 0.08);
 }
 
-.servico-card i {
+.carousel-track .servico-card i {
     font-size: 2.5rem;
     color: #C89B2C;
     margin-bottom: 16px;
 }
 
-.servico-card h4 {
+.carousel-track .servico-card h4 {
     font-size: 1.3rem;
     margin-bottom: 12px;
     color: #001B2E;
 }
 
-.servico-card p {
+.carousel-track .servico-card p {
     color: #666666;
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 27, 46, 0.8);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: #C89B2C;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Indicadores */
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.carousel-indicators span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d9e1ec;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.carousel-indicators span.active {
+    background: #C89B2C;
+    transform: scale(1.2);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .carousel-track .servico-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-track .servico-card {
+        flex: 0 0 calc(100% - 0px);
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
 }
 
 
@@ -418,31 +571,371 @@ header {
 
     .mobile-menu-btn {
         display: block;
+        z-index: 1001;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .hero-logo img {
+        width: 80px;
     }
 
     .nav-menu {
-        display: none;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: -280px;
+
+        width: 280px;
+        height: 100vh;
+
+        background: #001B2E;
+
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        padding-top: 24px;
+        align-items: flex-start;
+
+        padding: 100px 30px;
+
+        gap: 24px;
+
+        transition: right 0.3s ease;
+
+        z-index: 1000;
     }
 
     .nav-menu.show {
-        display: flex;
+        right: 0;
     }
 
-    .header-container {
-        flex-wrap: wrap;
+    .nav-menu a {
+        font-size: 1.1rem;
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+
+    .logo h1 {
+        font-size: 0.9rem;
     }
 
-    .hero-content h2 {
-        font-size: 2rem;
+    .logo span {
+        display: none;
     }
 
-    .contato-wrapper {
+    .mobile-menu-btn {
+        margin-left: auto;
+    }
+}
+
+
+}
+
+.section-banner {
+width: 100%;
+height: 320px;
+object-fit: cover;
+border-radius: 12px;
+margin-bottom: 32px;
+display: block;
+}
+
+
+/* ======================================== */
+/* MISSÃO, VISÃO E VALORES */
+/* ======================================== */
+
+.mvv {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f0f3f8 100%);
+}
+
+.mvv .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Título */
+.mvv .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #001B2E;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+.mvv .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #C89B2C;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* Grid - 3 colunas no PC */
+.mvv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Cards */
+.mvv-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid #e8edf4;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de borda dourada no hover */
+.mvv-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #C89B2C;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.mvv-card:hover::before {
+    transform: scaleX(1);
+}
+
+.mvv-card:hover {
+    transform: translateY(-10px);
+    border-color: #C89B2C;
+    box-shadow: 0 20px 40px rgba(0, 27, 46, 0.12);
+}
+
+/* Ícones */
+.mvv-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(200, 155, 44, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: all 0.4s ease;
+}
+
+.mvv-card:hover .mvv-icon {
+    background: #C89B2C;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.mvv-icon i {
+    font-size: 2.2rem;
+    color: #C89B2C;
+    transition: all 0.4s ease;
+}
+
+.mvv-card:hover .mvv-icon i {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Títulos dos cards */
+.mvv-card h3 {
+    color: #001B2E;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Textos dos cards */
+.mvv-card p {
+    color: #666666;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    font-weight: 400;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+/* ======================================== */
+/* RESPONSIVIDADE */
+/* ======================================== */
+
+/* Tablets (até 992px) - 2 colunas */
+@media screen and (max-width: 992px) {
+    .mvv {
+        padding: 60px 0;
+    }
+    
+    .mvv .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+    
+    .mvv-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .mvv-card {
+        padding: 32px 24px;
+    }
+    
+    .mvv-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .mvv-icon i {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile (até 767px) - 1 coluna (quadrados embaixo um do outro) */
+@media screen and (max-width: 767px) {
+    .mvv {
+        padding: 50px 0;
+    }
+    
+    .mvv .container {
+        padding: 0 15px;
+    }
+    
+    .mvv .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 32px;
+    }
+    
+    .mvv .section-title::after {
+        width: 50px;
+        height: 3px;
+        margin-top: 10px;
+    }
+    
+    /* Mobile: 1 coluna - um embaixo do outro */
+    .mvv-grid {
         grid-template-columns: 1fr;
-        padding: 24px;
+        gap: 20px;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .mvv-card {
+        padding: 28px 20px;
+        border-radius: 12px;
+    }
+    
+    .mvv-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+    }
+    
+    .mvv-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .mvv-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 16px;
+    }
+    
+    .mvv-icon i {
+        font-size: 1.6rem;
+    }
+    
+    /* Efeito hover adaptado para mobile */
+    .mvv-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Mobile pequeno (até 400px) */
+@media screen and (max-width: 400px) {
+    .mvv {
+        padding: 35px 0;
+    }
+    
+    .mvv .container {
+        padding: 0 12px;
+    }
+    
+    .mvv .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+    }
+    
+    .mvv-grid {
+        gap: 16px;
+        max-width: 100%;
+    }
+    
+    .mvv-card {
+        padding: 22px 16px;
+        border-radius: 10px;
+    }
+    
+    .mvv-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .mvv-card p {
+        font-size: 0.88rem;
+        line-height: 1.6;
+    }
+    
+    .mvv-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 12px;
+    }
+    
+    .mvv-icon i {
+        font-size: 1.3rem;
+    }
+}
+
+/* ======================================== */
+/* ANIMAÇÃO DE ENTRADA */
+/* ======================================== */
+
+.mvv-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.mvv-card:nth-child(1) { animation-delay: 0.1s; }
+.mvv-card:nth-child(2) { animation-delay: 0.2s; }
+.mvv-card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Desabilitar animações para quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+    .mvv-card {
+        opacity: 1;
+        transform: none;
+        animation: none;
     }
 }
