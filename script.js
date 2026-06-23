@@ -162,3 +162,102 @@ document.addEventListener('DOMContentLoaded', function() {
     resetAutoPlay();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    // ========================================
+    // CARROSSEL DO ESCRITÓRIO
+    // ========================================
+    
+    const track = document.querySelector('.escritorio-track');
+    const slides = document.querySelectorAll('.escritorio-slide');
+    const prevBtn = document.querySelector('.escritorio-carousel .prev-btn');
+    const nextBtn = document.querySelector('.escritorio-carousel .next-btn');
+    const indicators = document.querySelector('.escritorio-indicators');
+    
+    if (!track || slides.length === 0) return;
+    
+    let currentIndex = 0;
+    let autoPlayInterval;
+    const totalSlides = slides.length;
+    
+    // Criar indicadores
+    function createIndicators() {
+        indicators.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            indicators.appendChild(dot);
+        }
+    }
+    
+    // Atualizar carrossel
+    function updateCarousel() {
+        const slideWidth = slides[0].offsetWidth;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        
+        // Atualizar indicadores
+        const dots = indicators.querySelectorAll('span');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+    
+    // Ir para slide específico
+    function goToSlide(index) {
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        currentIndex = index;
+        updateCarousel();
+        resetAutoPlay();
+    }
+    
+    // Próximo slide
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+    
+    // Slide anterior
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+    
+    // Resetar autoplay
+    function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(nextSlide, 4000); // Troca a cada 4 segundos
+    }
+    
+    // Navegação com teclado
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Pausar autoplay no hover
+    const carousel = document.querySelector('.escritorio-carousel');
+    carousel.addEventListener('mouseenter', () => {
+        clearInterval(autoPlayInterval);
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        resetAutoPlay();
+    });
+    
+    // Event listeners para os botões
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    // Recalcular no resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            updateCarousel();
+        }, 100);
+    });
+    
+    // Inicializar
+    createIndicators();
+    updateCarousel();
+    resetAutoPlay();
+});
